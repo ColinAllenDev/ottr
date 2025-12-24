@@ -11,9 +11,9 @@ PKGS = "wlroots-0.18" wayland-server xkbcommon
 CF_PKGS != pkg-config --cflags $(PKGS)
 LD_PKGS != pkg-config --libs $(PKGS)
 
-CFLAGS =  $(CF_PKGS) -std=c11 -g -Wall -Werror -DWLR_USE_UNSTABLE
+CFLAGS =  $(CF_PKGS) -std=c11 -g -Wall -DWLR_USE_UNSTABLE
 CPPFLAGS = -I$(SRC_DIR)
-LDFLAGS = $(LD_PKGS)
+LDFLAGS = $(LD_PKGS) -lc
 
 ### Logger #############################################
 date = $(shell date -u +%H:%M:%S)
@@ -29,7 +29,7 @@ clean:
 
 .PHONY: bear
 bear: clean
-	bear -- $(MAKE) -s all
+	@bear -- $(MAKE) -s all
 
 .PHONY: run
 run:

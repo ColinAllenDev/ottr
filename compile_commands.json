@@ -8,7 +8,6 @@
       "-std=c11",
       "-g",
       "-Wall",
-      "-Werror",
       "-DWLR_USE_UNSTABLE",
       "-Isrc",
       "-c",
